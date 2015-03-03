@@ -986,6 +986,8 @@ void max_temp_error(uint8_t e) {
 }
 
 void min_temp_error(uint8_t e) {
+  return;
+  // This block is ommited
   if(head_placed)
     {
         disable_heater();
