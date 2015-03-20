@@ -1991,6 +1991,32 @@ void process_commands()
         }
         break;
 #endif // ENABLE_AUTO_BED_LEVELING
+#ifdef ENDSTOP_Z_PROBING
+    case 38: // G38 endstop based z probe
+        {
+          if(!Stopped){
+            
+            st_synchronize();
+            
+            setup_for_endstop_move();
+
+            feedrate = homing_feedrate[Z_AXIS];
+          
+            run_fast_z_probe();
+            SERIAL_PROTOCOLPGM(MSG_BED);
+            SERIAL_PROTOCOLPGM(" X: ");
+            SERIAL_PROTOCOL(current_position[X_AXIS]);
+            SERIAL_PROTOCOLPGM(" Y: ");
+            SERIAL_PROTOCOL(current_position[Y_AXIS]);
+            SERIAL_PROTOCOLPGM(" Z: ");
+            SERIAL_PROTOCOL(current_position[Z_AXIS]);
+            SERIAL_PROTOCOLPGM("\n");
+
+            clean_up_after_endstop_move();
+          }
+        }
+        break;        
+#endif //ENDSTOP_Z_PROBING
     case 90: // G90
       relative_mode = false;
       break;
