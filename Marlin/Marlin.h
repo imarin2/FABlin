@@ -269,6 +269,19 @@ extern bool head_placed;
 extern bool enable_secure_switch_zprobe;
 #endif
 
+#ifdef THERMISTOR_HOTSWAP
+extern int maxttemp[EXTRUDERS];
+#ifdef TEMP_SENSOR_1_AS_REDUNDANT
+extern void *heater_ttbl_map[2];
+extern uint8_t heater_ttbllen_map[2];
+#else
+extern void *heater_ttbl_map[EXTRUDERS];
+extern uint8_t heater_ttbllen_map[EXTRUDERS];
+#endif
+extern void *thermistors_map[THERMISTOR_HOTSWAP_SUPPORTED_TYPES_LEN];
+extern uint8_t thermistors_map_len[THERMISTOR_HOTSWAP_SUPPORTED_TYPES_LEN];
+#endif
+
 // Handling multiple extruders pins
 extern uint8_t active_extruder;
 
