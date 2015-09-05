@@ -4337,7 +4337,14 @@ void process_commands()
           SERIAL_PROTOCOLLN(maxttemp[0]);
       }
     }
-    break;        
+    break;
+    case 802:   // M802 - returns supported thermistor types by index
+    {
+      int value;
+          SERIAL_PROTOCOLLN(THERMISTOR_HOTSWAP_SUPPORTED_TYPES_AS_STRING);
+    }
+    break;    
+    
 #endif     
 
 

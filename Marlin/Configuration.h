@@ -163,6 +163,10 @@
 #define THERMISTOR_HOTSWAP_DEFAULT_INDEX 0 // the index of within the supported types to which the printer will be initialised.
 
 // START: This are auxiliary macros
+#define xstr(s) str(s)
+#define str(s) #s
+     
+#define THERMISTOR_HOTSWAP_SUPPORTED_TYPES_AS_STRING xstr(THERMISTOR_HOTSWAP_SUPPORTED_TYPES)
 
 #define ORREP1(PTH_TYPE) PTH_TYPE == ARGN(0, THERMISTOR_HOTSWAP_SUPPORTED_TYPES)
 #define ORREP2(PTH_TYPE) ORREP1(PTH_TYPE) || PTH_TYPE == ARGN(1, THERMISTOR_HOTSWAP_SUPPORTED_TYPES)
