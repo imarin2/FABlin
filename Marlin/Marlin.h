@@ -63,6 +63,7 @@
 #define SERIAL_PROTOCOL_F(x,y) (MYSERIAL.print(x,y))
 #define SERIAL_PROTOCOLPGM(x) (serialprintPGM(PSTR(x)))
 #define SERIAL_PROTOCOLLN(x) (MYSERIAL.print(x),MYSERIAL.write('\n'))
+#define SERIAL_PROTOCOLLN_F(x,y) (MYSERIAL.print(x,y),MYSERIAL.write('\n'))
 #define SERIAL_PROTOCOLLNPGM(x) (serialprintPGM(PSTR(x)),MYSERIAL.write('\n'))
 
 

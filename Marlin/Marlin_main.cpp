@@ -4297,20 +4297,22 @@ void process_commands()
 		// M800 returns the current extruder0 type index (0=type 169, 1=type 11,...)
     {
       int value;
+      
       if (code_seen('S'))
       {
         value = code_value();
         if(value>=0 && value<THERMISTOR_HOTSWAP_SUPPORTED_TYPES_LEN)
         {
           extruder_0_thermistor_index=value;
-
+	  CRITICAL_SECTION_START
 	  heater_ttbl_map[0] = thermistors_map[extruder_0_thermistor_index];
 	  heater_ttbllen_map[0] = thermistors_map_len[extruder_0_thermistor_index]; 
+	  CRITICAL_SECTION_END
         }
       }
       else
       {
-          SERIAL_PROTOCOL(extruder_0_thermistor_index);
+	SERIAL_PROTOCOLLN_F(extruder_0_thermistor_index,DEC);
       }
     }
     break;
@@ -4325,12 +4327,14 @@ void process_commands()
         value = code_value();
         if(value>=0)
         {
+	  CRITICAL_SECTION_START
 	  maxttemp[0] = value;
+	  CRITICAL_SECTION_END
         }
       }
       else
       {
-          SERIAL_PROTOCOL(maxttemp[0]);
+          SERIAL_PROTOCOLLN(maxttemp[0]);
       }
     }
     break;        
