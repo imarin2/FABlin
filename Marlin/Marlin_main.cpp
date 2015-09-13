@@ -480,8 +480,9 @@ bool zeroed_far_from_home_y=true;
 
 float safe_probing_offset=1;        //it will probe until the (probe length - safe_probing_offset) is reached
 
-
+#ifdef THERMISTOR_HOTSWAP
 uint8_t extruder_0_thermistor_index = THERMISTOR_HOTSWAP_DEFAULT_INDEX;
+#endif
 
 //===========================================================================
 //=============================Routines======================================
