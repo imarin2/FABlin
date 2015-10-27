@@ -894,9 +894,9 @@
 #define HEATER_BED_PIN   8
 #define FAN_PIN            9
 
-#define TEMP_0_PIN         13   // ANALOG NUMBERING
+#define TEMP_0_PIN         15   // ANALOG NUMBERING
 #define TEMP_BED_PIN       14   // ANALOG NUMBERING
-#define TEMP_1_PIN         15   // ANALOG NUMBERING
+#define TEMP_1_PIN         13   // ANALOG NUMBERING
 #define TEMP_2_PIN         -1   // ANALOG NUMBERING
 
 
